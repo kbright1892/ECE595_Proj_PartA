@@ -1,75 +1,92 @@
 from math import log2
 from data import data, features, outcomes
 
-
+# calculates entropy based on the number of yes's and no's passed
 def calculate_entropy(positive_cnt: int, negative_cnt: int) -> float:
     total_cnt: int = positive_cnt + negative_cnt
     positive_pct: float = positive_cnt / total_cnt
     negative_pct: float = negative_cnt / total_cnt
 
+    # prevent log2(0) errors
     if positive_cnt == 0 or negative_cnt == 0:
         return 0
 
     return -(positive_pct * log2(positive_pct) + negative_pct * log2(negative_pct))
 
 
+# calculate the information gain for the passed feature based on the passed entropy
+# row_indices is a subset of the dataset to be used for the calculation
 def calculate_information_gain(row_indices: list, feature: str, orig_entropy: float) -> float:
-    # indices for dictionary arrays in a more understandable format 
-    yes_no_enum: dict = { "yes_cnt": 0, "no_cnt": 1}
     # dictionary format: feature_option -> [yes_cnt, no_cnt]  
-    feature_outcomes: dict[str, list] = {}
+    feature_value_outcomes: dict[str, list] = {}
+    yes_cnt_index = 0
+    no_cnt_index = 1
+    # get the index of passed feature in each data row
+    feature_index = features[feature]
 
+    # calculate the count of yes's and no's for each feature value
     for row in row_indices:
-        # this is the value for the column, i.e. sunny for outlook
-        # this gets the index for the feature in the data array and then checks to see
-        # if the value option for that feature is in the feature outcome dictionary
-        if data[row][features[feature]] not in feature_outcomes:
-            feature_outcomes[data[row][features[feature]]] = [0,0]
+        # get the value of the feature for the current row
+        row_feature_value = data[row][feature_index]
+        # if the value option for that feature is in the feature outcome dictionary yet, add it
+        if data[row][feature_index] not in feature_value_outcomes:
+            feature_value_outcomes[data[row][feature_index]] = [0,0]
         
-        # logs the outcome based on the feature option
+        # logs the outcome based on the feature option for the current row
         if outcomes[row] == 'yes':
-            feature_outcomes[data[row][features[feature]]][yes_no_enum["yes_cnt"]] += 1
+            feature_value_outcomes[row_feature_value][yes_cnt_index] += 1
         else:
-            feature_outcomes[data[row][features[feature]]][yes_no_enum["no_cnt"]] += 1    
+            feature_value_outcomes[row_feature_value][no_cnt_index] += 1    
 
+    # total number of rows in the subset
     row_cnt: int = len(row_indices)
     weighted_entropy: float = 0.0
     
-    # calculate weighted entropy for each feature option    
-    for value in feature_outcomes:
-        cnt_of_value_rows = feature_outcomes[value][0] + feature_outcomes[value][1]
-        weighted_entropy += (cnt_of_value_rows/row_cnt) * calculate_entropy(feature_outcomes[value][0], feature_outcomes[value][1])
+    # calculate weighted entropy for each feature option and add it to the overall weighted entropy for the feature 
+    for value in feature_value_outcomes:
+        cnt_of_value_rows: int = feature_value_outcomes[value][0] + feature_value_outcomes[value][1]
+        weighted_entropy += (cnt_of_value_rows/row_cnt) * calculate_entropy(feature_value_outcomes[value][0], feature_value_outcomes[value][1])
   
+    # return information gain
     return orig_entropy - weighted_entropy
 
-
-def rank_features(indices, remaining_features):
+# returns a list of lists of features and their information gain, in descending order by IG
+# can also determine if the node whose data was passed is a leaf
+def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] | None, str | None]:
+    # calculate the pre-split entropy
     yes_cnt: int = 0
     no_cnt: int = 0
 
+    # calculate the count of yes and no outcomes
     for i in indices:
         if outcomes[i] == 'yes':
             yes_cnt += 1
         else:
             no_cnt += 1
 
+    # if there are no yes's or no no's, it is a leaf, so it gets a decision
     if yes_cnt == 0:
         return None, 'no'
     elif no_cnt == 0:
         return None, 'yes'
 
-    orig_entropy = calculate_entropy(yes_cnt, no_cnt)
+    orig_entropy: float = calculate_entropy(yes_cnt, no_cnt)
 
+    # dictionary of the information gain for each feature
+    # features -> information gain
     information_gain: dict[str, float] = {}
 
-    # for each column, enumerate the 
+    # calculate the information gain for each of the remaining features and add it to the dict
     for feature in remaining_features:
         information_gain[feature] = calculate_information_gain(indices, feature, orig_entropy)
 
+    # convert the dictionary to a list
     sorted_features: list[list] = []
     for entry in information_gain:
         sorted_features.append([entry, information_gain[entry]])
 
+    # sort list of lists in descending order by the second value in each list, which is the information gain
+    # sort if stable, so in case of tie, the value with the lowest index will be ranked highest
     sorted_features.sort(key=lambda x: x[1], reverse=True)
 
     return sorted_features, None

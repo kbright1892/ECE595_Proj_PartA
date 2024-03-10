@@ -1,3 +1,5 @@
+# dictionary of indices for each feature in the data dictionary
+# these are the equivalent of column headers
 features: dict[str, int] = {
     "outlook": 0,
     "temperature": 1,
@@ -5,6 +7,7 @@ features: dict[str, int] = {
     "wind": 3
 }
 
+# each dictionary entry is a data point with the assicated feature values
 data: dict[int, list] = {
     1: ["sunny", "hot", "high", "weak"],
     2: ["sunny", "hot", "high", "strong"],
@@ -22,6 +25,7 @@ data: dict[int, list] = {
     14: ["rain", "mild", "high", "strong"]
 }
 
+# the outcomes of each data point in the data dictionary
 outcomes: dict[int, str] = {
     1: "no",
     2: "no",
