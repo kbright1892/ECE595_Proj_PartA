@@ -2,8 +2,11 @@ from data import data, features
 from helpers import rank_features
 from Node import Node, HeadNode
 
-# split node is called recursively until all leaf nodes are found
-# it calculates the information gain of all remaining features and splits on the best one
+"""
+split node is called recursively until all leaf nodes are found
+it calculates the information gain of all remaining features and splits on the best one
+@param node - a Node or Node object
+"""
 def split_node(node: Node | HeadNode) -> None:
     indices: list[int] = node.indices
     remaining_features: list[str] = node.remaining_features
@@ -39,9 +42,11 @@ def split_node(node: Node | HeadNode) -> None:
         new_node: Node = Node(feature_values[feature_value], remaining_features, node.level + 1 ,feature_value)
         split_node(new_node)
         node.children.append(new_node)
-
-# prints the tree, tabbed in for each level with -- representing connecting lines and the assicated feature value
-# uses a preorder traversal to maintain parent-child relationships
+"""
+prints the tree, tabbed in for each level with -- representing connecting lines and the assicated feature value
+uses a preorder traversal to maintain parent-child relationships
+@param node - the node to be printed
+"""
 def print_tree(node: HeadNode | Node) -> None:
     print(node)
 
@@ -54,7 +59,7 @@ def main():
     row_indices: list = list(data.keys())
 
     # create head node which includes all data and all features with a level of 0
-    head: HeadNode = HeadNode(row_indices, list(features.keys()), 0)
+    head: HeadNode = HeadNode()
     split_node(head)
     print_tree(head)
 

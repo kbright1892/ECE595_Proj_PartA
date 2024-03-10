@@ -1,5 +1,12 @@
+from data import features, data
+
 class HeadNode:
-    def __init__(self, indices, remaining_features, level):
+    """
+    a head node is the top node on a decision tree. It is at level 0 and doesn't represent a 
+    particular feature, but rather the entire dataset and it's features list contains all features, 
+    as none have been removed for a prior split
+    """
+    def __init__(self, indices = list(data.keys()), remaining_features = list(features.keys()), level = 0):
         # indices of the dataset represented in this node
         self.indices: list[int] = indices
         # features that have not already been split upon in an ancestor node
@@ -18,11 +25,14 @@ class HeadNode:
         self.decision: str | None = None
 
     def __str__(self) -> str:
+        # create a string of the top feature and its information gain
         return f'{self.split_feature}: {self.information_gain}'
     
-# like the head node, but it also includes the feature value it represents from the 
-# split of its parent
+
 class Node(HeadNode):
+    """
+    like the head node, but it also includes the feature value it represents from the split of its parent
+    """
     def __init__(self, indices, remaining_features, level, feature_value):
         super().__init__(indices, remaining_features, level)
         self.feature_value = feature_value
@@ -32,6 +42,8 @@ class Node(HeadNode):
     # either print the feature and IG or the value and decision it represents
     def __str__(self) -> str:
         if not self.is_leaf:
+            # create string of the feature the node represents and the outcome
             return '\t' * (self.level) + f'-{self.feature_value}\n' + '\t' * (self.level *2) + super().__str__()
         else:
+            # create a string of hte feature the node represents and the information gain of the top remaining feaure
             return '\t' * (self.level * 2 - 1) + f'-{self.feature_value}\n' + '\t' * (self.level * 2) + f'{self.decision}'
