@@ -9,8 +9,8 @@ it calculates the information gain of all remaining features and splits on the b
 """
 def split_node(node: Node | HeadNode) -> None:
     indices: list[int] = node.indices
-    remaining_features: list[str] = node.remaining_features
-    sorted_features, decision = rank_features(indices, remaining_features)
+    remaining_features: list[str] = node.remaining_features.copy()
+    sorted_features, decision, node.entropy = rank_features(indices, remaining_features)
 
     # exit condition - all outcomes are the same
     if decision:
@@ -18,18 +18,16 @@ def split_node(node: Node | HeadNode) -> None:
         node.is_leaf = True
         return
     
+    node.sorted_features = sorted_features
     # top ranked feature based on IG
-    node.split_feature = sorted_features[0][0]
-    # information gain for that feature
-    node.information_gain = sorted_features[0][1]
 
     # remove the split features so it can't be selected again by a descendant node
-    remaining_features.remove(node.split_feature)
+    remaining_features.remove(sorted_features[0][0])
 
     # create dictionary for each feature value and the indices in the data subset that have that value
     # will be used to create child nodes
     feature_values: dict[str, list[int]] = dict()
-    split_feature_index: int = features[node.split_feature]
+    split_feature_index: int = features[sorted_features[0][0]]
     for index in indices:
         feature_value = data[index][split_feature_index]
         if feature_value not in feature_values:

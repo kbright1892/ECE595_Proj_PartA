@@ -67,7 +67,7 @@ can also determine if the node whose data was passed is a leaf
 @param indices is all data rows to be considered in calculations
 @param remaining_features is a subset of features that have not been split upon by an ancestor node
 """
-def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] | None, str | None]:
+def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] | None, str | None, float | int]:
     # calculate the pre-split entropy
     yes_cnt: int = 0
     no_cnt: int = 0
@@ -81,9 +81,9 @@ def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] |
 
     # if there are no yes's or no no's, it is a leaf, so it gets a decision
     if yes_cnt == 0:
-        return None, 'no'
+        return None, 'no', 0
     elif no_cnt == 0:
-        return None, 'yes'
+        return None, 'yes', 0
 
     orig_entropy: float = calculate_entropy(yes_cnt, no_cnt)
 
@@ -104,4 +104,4 @@ def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] |
     # sort if stable, so in case of tie, the value with the lowest index will be ranked highest
     sorted_features.sort(key=lambda x: x[1], reverse=True)
 
-    return sorted_features, None
+    return sorted_features, None, orig_entropy
