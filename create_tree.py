@@ -56,9 +56,6 @@ def print_tree(node: HeadNode | Node) -> None:
 
 # entry point for full tree creation
 def main():
-    # indices of all rows in the dataset
-    row_indices: list = list(data.keys())
-
     # create head node which includes all data and all features with a level of 0
     head: HeadNode = HeadNode()
     split_node(head)
