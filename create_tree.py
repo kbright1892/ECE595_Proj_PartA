@@ -42,6 +42,8 @@ def split_node(node: Node | HeadNode) -> None:
         new_node: Node = Node(feature_values[feature_value], remaining_features, node.level + 1 ,feature_value)
         split_node(new_node)
         node.children.append(new_node)
+
+
 """
 prints the tree, tabbed in for each level with -- representing connecting lines and the assicated feature value
 uses a preorder traversal to maintain parent-child relationships
@@ -52,6 +54,8 @@ def print_tree(node: HeadNode | Node) -> None:
 
     for child in node.children:
         print_tree(child)
+
+
 
 # entry point for full tree creation
 def main():

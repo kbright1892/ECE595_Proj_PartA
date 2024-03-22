@@ -1,11 +1,12 @@
 from data import features, data
 
+
+"""
+a head node is the top node on a decision tree. It is at level 0 and doesn't represent a 
+particular feature, but rather the entire dataset and it's features list contains all features, 
+as none have been removed for a prior split
+"""
 class HeadNode:
-    """
-    a head node is the top node on a decision tree. It is at level 0 and doesn't represent a 
-    particular feature, but rather the entire dataset and it's features list contains all features, 
-    as none have been removed for a prior split
-    """
     def __init__(self, indices = list(data.keys()), remaining_features = list(features.keys()), level = 0):
         # indices of the dataset represented in this node
         self.indices: list[int] = indices
@@ -24,18 +25,20 @@ class HeadNode:
         # if leaf, which outcome does it represent
         self.decision: str | None = None
 
+
     def __str__(self) -> str:
         # create a string of the top feature and its information gain
         return f'{self.split_feature}: {self.information_gain}'
     
 
+"""
+like the head node, but it also includes the feature value it represents from the split of its parent
+"""
 class Node(HeadNode):
-    """
-    like the head node, but it also includes the feature value it represents from the split of its parent
-    """
     def __init__(self, indices, remaining_features, level, feature_value):
         super().__init__(indices, remaining_features, level)
         self.feature_value = feature_value
+
 
     # printouts are done based on indention to form tree
     # tabbing is based on the level in the tree with head being level 0

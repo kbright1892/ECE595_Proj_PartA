@@ -1,5 +1,7 @@
 from math import log2
 from data import data, features, outcomes
+
+
 """
 calculates entropy based on the number of yes's and no's passed
 @param positive_cnt - number of positive outcomes for the feature or value being considered
@@ -15,6 +17,7 @@ def calculate_entropy(positive_cnt: int, negative_cnt: int) -> float:
         return 0
 
     return -(positive_pct * log2(positive_pct) + negative_pct * log2(negative_pct))
+
 
 """
 calculate the information gain for the passed feature based on the passed pre-split entropy
@@ -56,6 +59,8 @@ def calculate_information_gain(row_indices: list, feature: str, orig_entropy: fl
   
     # return information gain
     return orig_entropy - weighted_entropy
+
+
 """
 returns a list of lists of features and their information gain, in descending order by IG
 can also determine if the node whose data was passed is a leaf
