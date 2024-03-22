@@ -6,6 +6,7 @@ from data import data, features, outcomes
 calculates entropy based on the number of yes's and no's passed
 @param positive_cnt - number of positive outcomes for the feature or value being considered
 @param negative_cnt - number of negative outcomes for the features or value being considered
+@returns entropy based on passed counts
 """
 def calculate_entropy(positive_cnt: int, negative_cnt: int) -> float:
     total_cnt: int = positive_cnt + negative_cnt
@@ -24,6 +25,7 @@ calculate the information gain for the passed feature based on the passed pre-sp
 @param row_indices - a subset of the dataset to be used for the calculation
 @param feature - the name of the feature having its information gain calculated
 @param original_entropy - the entropy before splitting on the feature
+@returns information gain for feature
 """
 def calculate_information_gain(row_indices: list, feature: str, orig_entropy: float) -> float:
     # dictionary format: feature_option -> [yes_cnt, no_cnt]  
@@ -66,6 +68,11 @@ returns a list of lists of features and their information gain, in descending or
 can also determine if the node whose data was passed is a leaf
 @param indices is all data rows to be considered in calculations
 @param remaining_features is a subset of features that have not been split upon by an ancestor node
+@returns 3-tuple
+    - list of lists sorted by information gain, if more than 1 feature 
+        - each list is [feature, information_gain]
+    - decision, if applicable
+    - entropy pre-split
 """
 def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] | None, str | None, float | int]:
     # calculate the pre-split entropy
@@ -86,6 +93,29 @@ def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] |
         return None, 'yes', 0
 
     orig_entropy: float = calculate_entropy(yes_cnt, no_cnt)
+
+    # if this is the final feature and yes or no count isn't 0, return the most likely outcome
+    # if yes's and no's are equal in count, return the most likely outcome from the original dataset
+    # if that count is also equal, default to yes
+    if len(remaining_features) == 1:
+        if yes_cnt > no_cnt:
+            return None, 'yes', 0
+        elif no_cnt > yes_cnt:
+            return None, 'no', 0
+        else:
+            orig_yes_cnt = 0
+            orig_no_cnt = 0
+
+            for outcome in list(outcomes.values()):
+                if outcome == 'yes':
+                    orig_yes_cnt += 1
+                else:
+                    orig_no_cnt += 1
+
+            if orig_yes_cnt >= orig_no_cnt:
+                return None, 'yes', 0 
+            elif orig_no_cnt > orig_yes_cnt:
+                return None, 'no', 0
 
     # dictionary of the information gain for each feature
     # features -> information gain
