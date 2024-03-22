@@ -27,14 +27,15 @@ class HeadNode:
 
 
     def __str__(self) -> str:
-        full_string = f'Entropy: {self.entropy}\n' + '\t' * (self.level *2) + f'Best - {self.sorted_features[0][0]}: {self.sorted_features[0][1]}\n' + '\t' * (self.level *2) +  'Others - '
+        # create a string of the top feature and its information gain, as well as the information gain from the other features
+        full_string = f'Entropy: {self.entropy}\n' + '\t' * (self.level *2) \
+            + f'Best - {self.sorted_features[0][0]}: {self.sorted_features[0][1]}\n' + '\t' * (self.level *2) +  'Others - '
 
         for feature in self.sorted_features[1:]:
             full_string += f'{feature[0]}: {feature[1]}, '
 
         full_string = full_string[:-2]
 
-        # create a string of the top feature and its information gain
         return full_string
     
 
@@ -52,8 +53,11 @@ class Node(HeadNode):
     # either print the feature and IG or the value and decision it represents
     def __str__(self) -> str:
         if not self.is_leaf:
-            # create string of the feature the node represents and the outcome
-            return '\t' * (self.level) + f'\\_{self.feature_value}_\n' + '\t' * (self.level * 2 - 1) + ' ' * (len(self.feature_value) + 3 ) + '\\ \n' + '\t' * (self.level *2) + super().__str__()
-        else:
             # create a string of hte feature the node represents and the information gain of the top remaining feaure
-            return '\t' * (self.level * 2 - 1) + f'\\_{self.feature_value}_\n' + '\t' * (self.level * 2 - 1) + ' ' * (len(self.feature_value) + 3 ) + '\\ \n' + '\t' * (self.level * 2) + ' ' * (len(self.feature_value) - 4 if len(self.feature_value) > 4 else 0)  + f'{self.decision}\n'
+            return '\t' * (self.level) + f'\\_{self.feature_value}_\n' + '\t' * (self.level * 2 - 1) \
+                + ' ' * (len(self.feature_value) + 3 ) + '\\ \n' + '\t' * (self.level *2) + super().__str__()
+        else:
+            # create string of the feature the node represents and the outcome            
+            return '\t' * (self.level * 2 - 1) + f'\\_{self.feature_value}_\n' + '\t' * (self.level * 2 - 1) \
+                + ' ' * (len(self.feature_value) + 3 ) + '\\ \n' + '\t' * (self.level * 2) + ' ' * (len(self.feature_value) \
+                - 4 if len(self.feature_value) > 4 else 0)  + f'{self.decision}\n'

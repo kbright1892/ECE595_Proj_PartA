@@ -8,9 +8,8 @@ it calculates the information gain of all remaining features and splits on the b
 @param node - a Node or Node object
 """
 def split_node(node: Node | HeadNode) -> None:
-    indices: list[int] = node.indices
     remaining_features: list[str] = node.remaining_features.copy()
-    sorted_features, decision, node.entropy = rank_features(indices, remaining_features)
+    sorted_features, decision, node.entropy = rank_features(node.indices, remaining_features)
 
     # exit condition - all outcomes are the same
     if decision:
@@ -28,7 +27,7 @@ def split_node(node: Node | HeadNode) -> None:
     # will be used to create child nodes
     feature_values: dict[str, list[int]] = dict()
     split_feature_index: int = features[sorted_features[0][0]]
-    for index in indices:
+    for index in node.indices:
         feature_value = data[index][split_feature_index]
         if feature_value not in feature_values:
             feature_values[feature_value] = [index]
