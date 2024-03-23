@@ -79,6 +79,8 @@ def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] |
     yes_cnt: int = 0
     no_cnt: int = 0
 
+    decision = None
+
     # calculate the count of yes and no outcomes
     for i in indices:
         if outcomes[i] == 'yes':
@@ -88,9 +90,9 @@ def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] |
 
     # if there are no yes's or no no's, it is a leaf, so it gets a decision
     if yes_cnt == 0:
-        return None, 'no', 0
+        decision = 'no'
     elif no_cnt == 0:
-        return None, 'yes', 0
+        decision = 'yes'
 
     orig_entropy: float = calculate_entropy(yes_cnt, no_cnt)
 
@@ -99,9 +101,9 @@ def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] |
     # if that count is also equal, default to yes
     if len(remaining_features) == 1:
         if yes_cnt > no_cnt:
-            return None, 'yes', 0
+            decision = 'yes'
         elif no_cnt > yes_cnt:
-            return None, 'no', 0
+            decision = 'no'
         else:
             orig_yes_cnt = 0
             orig_no_cnt = 0
@@ -113,9 +115,9 @@ def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] |
                     orig_no_cnt += 1
 
             if orig_yes_cnt >= orig_no_cnt:
-                return None, 'yes', 0 
+                decision = 'yes'
             elif orig_no_cnt > orig_yes_cnt:
-                return None, 'no', 0
+                decision = 'no'
 
     # dictionary of the information gain for each feature
     # features -> information gain
@@ -134,4 +136,4 @@ def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] |
     # sort if stable, so in case of tie, the value with the lowest index will be ranked highest
     sorted_features.sort(key=lambda x: x[1], reverse=True)
 
-    return sorted_features, None, orig_entropy
+    return sorted_features, decision, orig_entropy

@@ -10,17 +10,17 @@ it calculates the information gain of all remaining features and splits on the b
 def split_node(node: Node | HeadNode) -> None:
     remaining_features: list[str] = node.remaining_features.copy()
     sorted_features, decision, node.entropy = rank_features(node.indices, remaining_features)
+    
+    # remaining features sorted in descending order by information gain
+    node.sorted_features = sorted_features
 
-    # exit condition - all outcomes are the same
+    # exit condition - all outcomes are the same or only one feature remaining
     if decision:
         node.decision = decision
         node.is_leaf = True
         return
-    
-    node.sorted_features = sorted_features
-    # top ranked feature based on IG
 
-    # remove the split features so it can't be selected again by a descendant node
+    # remove the top ranked feature so it can't be selected again by a descendant node
     remaining_features.remove(sorted_features[0][0])
 
     # create dictionary for each feature value and the indices in the data subset that have that value

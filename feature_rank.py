@@ -8,7 +8,7 @@ def main():
     # rank_features returns the features in descending order by information gain
     # list(features.keys()) is an array of all features
     # sorted_features is a list of lists. Each list has the feature in index 0 and the IG in index 1
-    sorted_features, _ = rank_features(row_indices, list(features.keys()))
+    sorted_features, _, __ = rank_features(row_indices, list(features.keys()))
 
     print("Feature Rank (Information Gain)\n=======================================")
 
