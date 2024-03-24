@@ -1,0 +1,290 @@
+[
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Entropy: 0.9403\\n9 Yes - 5 No\\n\\nFeature Info. Gains:\\n1. Outlook: 0.2467\\n2. Humidity: 0.1518\\n3. Wind: 0.0481\\n4. Temperature: 0.0292] \n    -->|Sunny - 5| B[Entropy: 0.9710\\n2 Yes - 3 No\\n\\nFeature Info. Gains:\\n1. Humidity: 0.9710\\n2. Temperature: 0.5710\\n3. Wind: 0.0200]\n    A -->|Overcast - 4| C{Yes}\n    A -->|Rain - 5| D[Entropy: 0.9710\\n3 Yes - 2 No\\n\\nFeature Info. Gains:\\n1. Wind: 0.9710\\n2. Temperature: 0.200\\n3. Humidity: 0.200]\n    B -->|High - 3| G{No}\n    B -->|Normal - 2| H{Yes}\n    D -->|Weak - 3| E{Yes}\n    D -->|Strong - 2| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711247024718,
+    "type": "auto",
+    "id": "ec4deab8-52d1-4aa7-9d8b-cb40da63aaae",
+    "name": "embarrassed-lion"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Entropy: 0.9403\\n9 Yes - 5 No\\n\\nFeature Info. Gains:\\n1. Outlook: 0.2467\\n2. Humidity: 0.1518\\n3. Wind: 0.0481\\n4. Temperature: 0.0292] \n    -->|Sunny - 5| B[Entropy: 0.9710\\n2 Yes - 3 No\\n\\nFeature Info. Gains:\\n1. Humidity: 0.9710\\n2. Temperature: 0.5710\\n3. Wind: 0.0200]\n    A -->|Overcast - 4| C{Yes}\n    A -->|Rain - 5| D[Entropy: 0.9710\\n3 Yes - 2 No\\n\\nFeature Info. Gains:\\n1. Wind: 0.9710\\n2. Temperature: 0.200\\n3. Humidity: 0.200]\n    B -->|High - 3| G{No}\n    B -->|Normal - 2| H{Yes}\n    D -->|Weak - 3| E{Yes}\n    D -->|Strong - 2| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711247004952,
+    "type": "manual",
+    "id": "d5ad5373-9435-49c0-b834-851ed0491ef7",
+    "name": "sweet-article"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Entropy: 0.9403\\n9 Yes - 5 No\\n\\nFeature Info. Gains:\\n1. Outlook: 0.2467\\n2. Humidity: 0.1518\\n3. Wind: 0.0481\\n4. Temperature: 0.0292] \n    -->|Sunny - 5| B[Entropy: 0.9710\\n2 Yes - 3 No\\n\\nFeature Info. Gains:\\n1. Humidity: 0.9710\\n2. Temperature: 0.5710\\n3. Wind: 0.0200]\n    A -->|Overcast - 4| C{Yes}\n    A -->|Rain - 5| D[Entropy: 0.9710\\n\\nFeature Info. Gains:\\n1. Wind: 0.9710\\n2. Temperature: 0.200\\n3. Humidity: 0.200]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711246964734,
+    "type": "auto",
+    "id": "6f497e41-040a-4a38-8133-e9c30e50598c",
+    "name": "moldy-motherboard"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Entropy: 0.9403\\n9 Yes - 5 No\\n\\nFeature Info. Gains:\\n1. Outlook: 0.2467\\n2. Humidity: 0.1518\\n3. Wind: 0.0481\\n4. Temperature: 0.0292] \n    -->|Sunny - 5| B[Entropy: 0.9710\\n\\nFeature Info. Gains:\\n1. Humidity: 0.9710\\n2. Temperature: 0.5710\\n3. Wind: 0.0200]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Entropy: 0.9710\\n\\nFeature Info. Gains:\\n1. Wind: 0.9710\\n2. Temperature: 0.200\\n3. Humidity: 0.200]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711246904718,
+    "type": "auto",
+    "id": "91ffb858-abf2-4978-b913-1fc6c4d86730",
+    "name": "squeaking-candle"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Entropy: 0.9403\\n\\nFeature Info. Gains:\\n1. Outlook: 0.2467\\n2. Humidity: 0.1518\\n3. Wind: 0.0481\\n4. Temperature: 0.0292] \n    -->|Sunny| B[Entropy: 0.9710\\n\\nFeature Info. Gains:\\n1. Humidity: 0.9710\\n2. Temperature: 0.5710\\n3. Wind: 0.0200]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Entropy: 0.9710\\n\\nFeature Info. Gains:\\n1. Wind: 0.9710\\n2. Temperature: 0.200\\n3. Humidity: 0.200]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": true
+    },
+    "time": 1711136758041,
+    "type": "auto",
+    "id": "d286777f-370d-4d14-95b4-6e48cb5b2aac",
+    "name": "apprehensive-airport"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Entropy: 0.9403\\n\\nFeature Info. Gains:\\n1. Outlook: 0.2467\\n2. Humidity: 0.1518\\n3. Wind: 0.0481\\n4. Temperature: 0.0292] \n    -->|Sunny| B[Entropy: 0.9710\\n\\nFeature Info. Gains:\\n1. Humidity: 0.9710\\n2. Temperature: 0.5710\\n3. Wind: 0.0200]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Entropy: 0.9710\\n\\nFeature Info. Gains:\\n1. Wind: 0.9710\\n2. Temperature: 0.200\\n3. Humidity: 0.200]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711135098406,
+    "type": "auto",
+    "id": "0b7803c0-629f-411b-bea3-b4e04ad2caff",
+    "name": "flat-coffeeshop"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Entropy: 0.9403\\n\\nFeature Info. Gains:\\n1. Outlook: 0.2467\\n2. Humidity: 0.1518\\n3. Wind: 0.0481\\n4. Temperature: 0.0292] \n    -->|Sunny| B[Entropy: 0.9710\\n\\nFeature Info. Gains:\\n1. Humidity: 0.9710\\n2. Temperature: 0.5710\\n3. Wind: 0.0200]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Entropy: 0.9710\\n\\nFeature Info. Gains:\\n1. Wind: 0.9710\\n2. Temperature: 0.200\\n3. Humidity: 0.200]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711135063622,
+    "type": "manual",
+    "id": "9a7f84f2-31fe-4bf1-a1bb-548fa6d02615",
+    "name": "bored-megabyte"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Entropy: 0.9403\\n\\nFeature Info. Gains:\\n1. Outlook: 0.2467\\n2. Humidity: 0.1518\\n3. Wind: 0.0481\\n4. Temperature: 0.0292] \n    -->|Sunny| B[Entropy:0.9710\\n\\nFeature Info. Gains:\\n1. Humidity: 0.9710\\n2. Temperature: 0.5710\\n3. Wind: 0.0200]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Entropy: 0.9710\\n\\nFeature Info. Gains:\\n1. Wind: 0.9710\\n2. Temperature: 0.200\\n3. Humidity: 0.200]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711134978407,
+    "type": "auto",
+    "id": "01e81b7f-6dc3-4fcd-a894-0e9cd3897c39",
+    "name": "obnoxious-tiger"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Entropy: 0.9403\\nFeature Info. Gains:\\n1. Outlook: 0.2467\\n2. Humidity: 0.1518\\n3. Wind: 0.0481\\n4. Temperature: 0.0292] \n    -->|Sunny| B[Entropy:0.9710\\nFeature Info. Gains:\\n1. Humidity: 0.9710\\n2. Temperature: 0.5710\\n3. Wind: 0.0200]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Entropy: 0.9710\\nFeature Info. GaiWind\\nIG: 0.9710]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711134918406,
+    "type": "auto",
+    "id": "608c2040-06e9-4b71-a210-24a539176aa3",
+    "name": "odd-woman"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Entropy: 0.9403\\nFeature Info. Gains:\\n1. Outlook: 0.2467\\n2. Humidity: 0.1518\\n3. Wind: 0.0481\\n4. Temperature: 0.0292] \n    -->|Sunny| B[Ent:0.9710\\nFeature Info. Gains:\\n1. Humidity: 0.9710]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Ent: 0.9710\\nWind\\nIG: 0.9710]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711134858420,
+    "type": "auto",
+    "id": "ddcba741-5bf0-4837-bf1b-d141155e6b70",
+    "name": "pitiful-knife"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Ent: 0.9403\\nFeature IG:\\n1. Outlook: 0.2467\\n2. Humidity: 0.1518\\n3. Wind: 0.0481\\n4. Temperature: 0.0292] -->|Sunny| B[Ent:0.9710\\nHumidity\\nIG: 0.9710]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Ent: 0.9710\\nWind\\nIG: 0.9710]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711134798423,
+    "type": "auto",
+    "id": "eff3db4b-7b73-45df-86f4-8a7c7fdcc604",
+    "name": "apprehensive-forest"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Ent: 0.9403\\nFeature IG:\\n1. Outlook: 0.2467] -->|Sunny| B[Ent:0.9710\\nHumidity\\nIG: 0.9710]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Ent: 0.9710\\nWind\\nIG: 0.9710]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711134738425,
+    "type": "auto",
+    "id": "b68b791d-a029-4012-a89d-73fa02db42a0",
+    "name": "rough-baby"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Ent: 0.9403\\nOutlook\\nIG: 0.2467] -->|Sunny| B[Ent:0.9710\\nHumidity\\nIG: 0.9710]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Ent: 0.9710\\nWind\\nIG: 0.9710]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711134678408,
+    "type": "auto",
+    "id": "00d2eeca-cc1d-43d3-a00c-76af19068c40",
+    "name": "massive-agency"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Ent: 0.9403\\nOutlook\\nIG: 0.2467] -->|Sunny| B[Ent:0.9710\\nHumidity\\nIG: 0.9710]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Ent: 0.9710\\nWind\\nIG: 0.9710]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711134654240,
+    "type": "manual",
+    "id": "090d201e-2d59-4662-9827-faa9165935d2",
+    "name": "thundering-yak"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Ent: 0.9403\\nOutlook\\nIG: 0.2467] -->|Sunny| B[Ent:0.9710\\nHumidity\\nIG: 0.9710]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Wind\\nIG: 0.9710]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711134618422,
+    "type": "auto",
+    "id": "97955f24-ca18-48b2-8863-94ad3046e4ac",
+    "name": "callous-arm"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Outlook\\nEnt: 0.9403\\nIG: 0.2467] -->|Sunny| B[Humidity\\nIG: 0.9710]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Wind\\nIG: 0.9710]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1711134558408,
+    "type": "auto",
+    "id": "6b3c834e-7507-4ce5-bc3f-67e39b2a99fa",
+    "name": "glamorous-piano"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Outlook\\nIG: 0.2467] -->|Sunny| B[Humidity\\nIG: 0.9710]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Wind\\nIG: 0.9710]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1710104041882,
+    "type": "auto",
+    "id": "175a5c84-f80a-45db-9b9c-b4b61511298f",
+    "name": "rough-france"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Outlook\\nIG: 0.2467] -->|Sunny| B[Humidity\\nIG: 0.9710]\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Wind\\nIG: 0.9710]\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1710104041737,
+    "type": "manual",
+    "id": "e28bd4cf-04db-4c65-8f0c-8f4736c7e2cc",
+    "name": "apprehensive-salesclerk"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Outlook\\nIG: 0.2467] -->|Sunny| B(Humidity\\nIG: 0.9710)\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D(Wind\\nIG: 0.9710)\n    B -->|High| G{No}\n    B -->|Normal| H{Yes}\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1710103921884,
+    "type": "auto",
+    "id": "21379479-f344-430d-bf4d-0a4be1090724",
+    "name": "deep-motherboard"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Outlook\\nIG: 0.2467] -->|Sunny| B(Humidity\\nIG: 0.9710)\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D(Wind\\nIG: 0.9710)\n    B -->|High| G{No}\n    B -->|\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1710103861882,
+    "type": "auto",
+    "id": "f1c09edc-51b6-4d2e-bc90-b7d92896c6c2",
+    "name": "wrong-sandwich"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Outlook\\nIG: 0.2467] -->|Sunny| B(Humidity\\nIG: 0.9710)\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D(Wind\\nIG: 0.9710)\n    D -->|Weak| E{Yes}\n    D -->|Strong| F{No}\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1710103801886,
+    "type": "auto",
+    "id": "80bb9224-c5e6-4417-af9f-a73508a20546",
+    "name": "apprehensive-answer"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Outlook\\nIG: 0.2467] -->|Sunny| B(Humidity\\nIG: 0.9710)\n    A -->|Overcast| C{Yes}\n    A -->|Rain| D[Wind]\n    C -->|Two| E[iPhone]\n    C -->|Three| F[fa:fa-car Car]\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1710103741895,
+    "type": "auto",
+    "id": "c1c06872-d6c4-4b5d-a05f-7d783dba4946",
+    "name": "absurd-fireman"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Outlook\\nIG: 0.2467] -->|Sunny| B(Humidity\\nIG: 0.9710)\n    A -->|Overcast| C()\n    C -->|One| D[Laptop]\n    C -->|Two| E[iPhone]\n    C -->|Three| F[fa:fa-car Car]\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1710103681885,
+    "type": "auto",
+    "id": "58eaf32b-ebb3-4f80-bd99-ed8be4428d25",
+    "name": "wailing-oyster"
+  },
+  {
+    "state": {
+      "code": "flowchart TD\n    A[Outlook\\nIG: 0.2467] -->|Sunny| B(Go shopping)\n    B --> C{Let me think}\n    C -->|One| D[Laptop]\n    C -->|Two| E[iPhone]\n    C -->|Three| F[fa:fa-car Car]\n  ",
+      "mermaid": "{\n  \"theme\": \"default\"\n}",
+      "autoSync": true,
+      "updateDiagram": false
+    },
+    "time": 1710103621883,
+    "type": "auto",
+    "id": "510fd593-c15a-4a8a-a453-b2809032a2b4",
+    "name": "tart-pencil"
+  }
+]
