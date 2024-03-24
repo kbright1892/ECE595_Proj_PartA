@@ -9,7 +9,7 @@ it calculates the information gain of all remaining features and splits on the b
 """
 def split_node(node: Node | HeadNode) -> None:
     remaining_features: list[str] = node.remaining_features.copy()
-    sorted_features, decision, node.entropy = rank_features(node.indices, remaining_features)
+    sorted_features, decision, node.entropy, node.yes_cnt, node.no_cnt = rank_features(node.indices, remaining_features)
     
     # remaining features sorted in descending order by information gain
     node.sorted_features = sorted_features

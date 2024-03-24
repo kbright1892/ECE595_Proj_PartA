@@ -10,6 +10,9 @@ class HeadNode:
     def __init__(self, indices: list = list(data.keys()), remaining_features: list = list(features.keys()), level: int = 0):
         # indices of the dataset represented in this node
         self.indices: list[int] = indices
+        # counts of positive and negative outcomes at this level
+        self.yes_cnt = 0
+        self.no_cnt = 0
         # features that have not already been split upon in an ancestor node
         self.remaining_features: list[str] = remaining_features.copy()
         # depth in the tree
@@ -28,7 +31,7 @@ class HeadNode:
 
     def __str__(self) -> str:
         # create a string of the top feature and its information gain, as well as the information gain from the other features
-        full_string = f'Entropy: {self.entropy}\n' + '\t' * (self.level *2) \
+        full_string = f'Entropy: {self.entropy} ({self.yes_cnt} Yes - {self.no_cnt} No)\n' + '\t' * (self.level *2) \
             + f'Best - {self.sorted_features[0][0]}: {self.sorted_features[0][1]}\n' + '\t' * (self.level *2) +  'Others - '
 
         for feature in self.sorted_features[1:]:
@@ -54,10 +57,9 @@ class Node(HeadNode):
     def __str__(self) -> str:
         if not self.is_leaf:
             # create a string of hte feature the node represents and the information gain of the top remaining feaure
-            return '\t' * (self.level) + f'\\_{self.feature_value}_\n' + '\t' * (self.level * 2 - 1) \
-                + ' ' * (len(self.feature_value) + 3 ) + '\\ \n' + '\t' * (self.level *2) + super().__str__()
+            return '\t' * (self.level) + f'\\_{self.feature_value} ({self.yes_cnt + self.no_cnt})_\n' + '\t' * (self.level * 2 - 1) \
+                + ' ' * (len(self.feature_value) + 7 ) + '\\ \n' + '\t' * (self.level *2) + super().__str__()
         else:
             # create string of the feature the node represents and the outcome            
-            return '\t' * (self.level * 2 - 1) + f'\\_{self.feature_value}_\n' + '\t' * (self.level * 2 - 1) \
-                + ' ' * (len(self.feature_value) + 3 ) + '\\ \n' + '\t' * (self.level * 2) + ' ' * (len(self.feature_value) \
-                - 4 if len(self.feature_value) > 4 else 0)  + f'{self.decision}\n'
+            return '\t' * (self.level * 2 - 1) + f'\\_{self.feature_value} ({self.yes_cnt + self.no_cnt})_\n' + '\t' * (self.level * 2 - 1) \
+                + ' ' * (len(self.feature_value) + 7 ) + '\\ \n' + '\t' * (self.level * 2) + ' ' * len(self.feature_value) + f'{self.decision}\n'

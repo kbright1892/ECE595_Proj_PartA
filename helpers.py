@@ -136,4 +136,4 @@ def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] |
     # sort if stable, so in case of tie, the value with the lowest index will be ranked highest
     sorted_features.sort(key=lambda x: x[1], reverse=True)
 
-    return sorted_features, decision, orig_entropy
+    return sorted_features, decision, orig_entropy, yes_cnt, no_cnt
