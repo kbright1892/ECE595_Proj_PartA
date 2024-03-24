@@ -7,7 +7,7 @@ features: dict[str, int] = {
     "wind": 3
 }
 
-# each dictionary entry is a data point with the assicated feature values
+# each dictionary entry is a data point with the associated feature values
 data: dict[int, list] = {
     1: ["sunny", "hot", "high", "weak"],
     2: ["sunny", "hot", "high", "strong"],

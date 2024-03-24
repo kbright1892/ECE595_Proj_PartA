@@ -42,9 +42,9 @@
 - It creates 2 lists:
   1. A list of row indices from the keys of the data dictionary
   2. A list of features from the keys of the feature dictionary
-- It calls the rank_features method from helpers.py, which returns the features and their information gains.
+- It calls the rank_features method from helpers.py, which returns the features and their information gains, as well as the original dataset entropy.
   - The second return value of rank_features is not used
-- The sorted list of features is then printed to the screen
+- The dataset entropy and sorted list of features is then printed to the screen
 
 ### create_tree.py
 
