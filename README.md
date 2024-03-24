@@ -103,7 +103,7 @@
   - A decision, yes or no, if this will be a leaf
   - The entropy of the subset of rows
 - It calculates the number of positive and negative outcomes for the subset of rows and calls calculate_entropy() to get the entropy of the subset
-  - If there is only one remaining feature, it returns a decision based on the count of positive and negative outcomes
+  - If there are no remaining features, it returns a decision based on the count of positive and negative outcomes
     - Incase of a tie, it uses the counts of positive and negative outcomes of the original full dataset
       - If that is a tie, it defaults to a positive outcome
 - If there is more than one remaining feature, it calls calculate_information_gain() for each remaining features and captures the values

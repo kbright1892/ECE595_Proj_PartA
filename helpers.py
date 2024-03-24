@@ -96,10 +96,10 @@ def rank_features(indices, remaining_features) -> tuple[list[list[str, float]] |
 
     orig_entropy: float = calculate_entropy(yes_cnt, no_cnt)
 
-    # if this is the final feature and yes or no count isn't 0, return the most likely outcome
+    # if there are no features left, return the most likely outcome
     # if yes's and no's are equal in count, return the most likely outcome from the original dataset
     # if that count is also equal, default to yes
-    if len(remaining_features) == 1:
+    if len(remaining_features) == 0:
         if yes_cnt > no_cnt:
             decision = 'yes'
         elif no_cnt > yes_cnt:

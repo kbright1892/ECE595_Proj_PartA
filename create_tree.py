@@ -14,7 +14,7 @@ def split_node(node: Node | HeadNode) -> None:
     # remaining features sorted in descending order by information gain
     node.sorted_features = sorted_features
 
-    # exit condition - all outcomes are the same or only one feature remaining
+    # exit condition - all outcomes are the same or there are no features remaining, so a decision was returned
     if decision:
         node.decision = decision
         node.is_leaf = True
